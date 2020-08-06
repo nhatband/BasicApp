@@ -30,11 +30,14 @@ public class SecondScreen extends AppCompatActivity {
                 case R.id.nav_Home:
                     selectfragment = new HomeFragment();
                     break;
-//                case R.id.nav_thongke:
-//                    selectfragment = new ThongKeFragment();
-//                    break;
+                case R.id.nav_Info:
+                    selectfragment = new InfoFragment();
+                    break;
                 case R.id.nav_Setting:
                     selectfragment = new SettingFragment();
+                    break;
+                case R.id.nav_Chart:
+                    selectfragment = new ChartFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, selectfragment).commit();

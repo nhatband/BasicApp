@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Roblox Customer Service assists with Billing and Account related inquiries. If you have questions about site features, game play, building or scripting, please visit the Roblox Developer Hub and the Help Articles.
+
+
+
+If you need further assistance with Billing or Account issues or have a question regarding moderation action against your account or assets, review the below information and then contact us via the Support form.
+
+Make sure to provide as much information as possible, such as:
+
+Username(s)
+Specific details about your question or issue"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+
+        />
+
+</LinearLayout>

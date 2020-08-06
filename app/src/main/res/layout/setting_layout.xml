@@ -33,9 +33,11 @@
             android:textSize="25sp" />
 
         <Switch
+            android:id="@+id/swPincode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
+            android:checked="false"
             android:thumb="@drawable/around_switch"
             android:track="@drawable/track_select" />
 
