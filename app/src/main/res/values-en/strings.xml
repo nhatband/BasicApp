@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicApp</string>
+    <string name="pincode">pincode</string>
+    <string name="setting">setting</string>
+    <string name="success">Sign in Success</string>
+    <string name="fale">Sign in Fale</string>
+    <string name="add">Add</string>
+    <string name="chart">Chart</string>
+    <string name="info">Info</string>
+    <string name="them">Add</string>
+</resources>

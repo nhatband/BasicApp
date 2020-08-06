@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#615F5D"
+    android:background="@color/colorPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -15,12 +15,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="28dp"
-            android:background="@drawable/stick" />
+
 
         <ImageView
             android:id="@+id/imglock"

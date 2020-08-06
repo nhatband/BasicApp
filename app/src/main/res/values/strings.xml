@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">BasicApp</string>
+    <string name="pincode">Pincode</string>
+    <string name="setting">Setting</string>
+    <string name="success">Đăng nhập thành công</string>
+    <string name="fale">Đăng nhập thất bại</string>
+    <string name="add">Add</string>
+    <string name="chart">Chart</string>
+    <string name="qrcode" translatable="false">QRCode</string>
+    <string name="info">Info</string>
+    <string name="them">add</string>
+
 </resources>

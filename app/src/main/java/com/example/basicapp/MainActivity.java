@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void run() {
                     if (edtString.equals("1234") && edtString.length() == 4) {
                         Intent intent = new Intent(MainActivity.this, SecondScreen.class);
-                        final Toast t = Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT);
+                        final Toast t = Toast.makeText(getApplicationContext(), R.string.success, Toast.LENGTH_SHORT);
 
                         t.show();
                         Handler handler = new Handler();
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         finish();
                     } else if (edtString != "1234" && edtString.length() == 4) {
                         imglock.setImageDrawable((getResources().getDrawable(R.drawable.wrong_password)));
-                        final Toast t = Toast.makeText(getApplicationContext(), "Đăng nhập thất bại", Toast.LENGTH_SHORT);
+                        final Toast t = Toast.makeText(getApplicationContext(), R.string.fale, Toast.LENGTH_SHORT);
                         t.show();
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Đơn giản</string>
+    <string name="pincode">Mật khẩu</string>
+    <string name="setting">Cài đặt</string>
+    <string name="success">Đăng nhập thành công</string>
+    <string name="fale">Đăng nhập thất bại</string>
+    <string name="add">Thêm</string>
+    <string name="chart">Biểu Đồ</string>
+    <string name="info">Thông Tin</string>
+    <string name="them">Thêm</string>
+</resources>
