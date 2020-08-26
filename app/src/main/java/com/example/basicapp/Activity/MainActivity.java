@@ -1,4 +1,4 @@
-package com.example.basicapp;
+package com.example.basicapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.basicapp.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnNumber0,

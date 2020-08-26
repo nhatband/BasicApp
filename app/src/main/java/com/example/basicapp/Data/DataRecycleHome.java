@@ -1,8 +1,8 @@
-package com.example.basicapp;
+package com.example.basicapp.Data;
 
 public class DataRecycleHome {
-    private  String date,content;
-    String money;
+    public    String date,content;
+    public String money;
 
     public String getDate() {
         return date;

@@ -1,4 +1,4 @@
-package com.example.basicapp;
+package com.example.basicapp.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,16 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.basicapp.Data.ContentData;
+import com.example.basicapp.Data.DataRecycleHome;
+import com.example.basicapp.R;
 
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
-    ArrayList<DataRecycleHome> dataRecycleHomes;
+    ArrayList<ContentData> ListcontentData;
     Context context;
 
-    public HomeAdapter(ArrayList<DataRecycleHome> dataRecycleHomes, Context context) {
-        this.dataRecycleHomes = dataRecycleHomes;
+    public HomeAdapter(ArrayList<ContentData> contentData, Context context) {
+        this.ListcontentData = contentData;
         this.context = context;
     }
 
@@ -32,14 +34,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtDate.setText(dataRecycleHomes.get(position).getDate());
-        holder.txtContent.setText(dataRecycleHomes.get(position).getContent());
-        holder.txtMoney.setText(dataRecycleHomes.get(position).money);
+        ContentData contentData = ListcontentData.get(position);
+        holder.txtDate.setText(String.valueOf(contentData.getmID()));
+        holder.txtContent.setText(contentData.getmContent());
+        holder.txtMoney.setText(contentData.getmMoney());
+
     }
 
     @Override
     public int getItemCount() {
-        return dataRecycleHomes.size();
+        return ListcontentData.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -1,14 +1,17 @@
-package com.example.basicapp;
+package com.example.basicapp.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.Window;
 
+import com.example.basicapp.Fragment.ChartFragment;
+import com.example.basicapp.Fragment.HomeFragment;
+import com.example.basicapp.Fragment.InfoFragment;
+import com.example.basicapp.Fragment.SettingFragment;
+import com.example.basicapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SecondScreen extends AppCompatActivity {
@@ -17,6 +20,7 @@ public class SecondScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_screen);
+
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
