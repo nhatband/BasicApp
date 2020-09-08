@@ -34,6 +34,7 @@ public class AddFragment extends Fragment {
                 if (contentData != null) {
                     dataBase.addContent(contentData);
                 }
+
             }
         });
         return view;
@@ -41,7 +42,7 @@ public class AddFragment extends Fragment {
 
     private ContentData createContent() {
 
-        String content = edtMoney.getText().toString();
+        String content = edtPurpose.getText().toString();
         String money = edtMoney.getText().toString();
         ContentData contentData = new ContentData(content, money);
         return contentData;

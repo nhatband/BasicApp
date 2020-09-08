@@ -22,7 +22,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String ID = "id";
     private static final String CONTENT = "content";
     private static final String MONEY = "money";
-    private static int Version = 1;
+    private static int Version = 2;
     private String SQLite = "CREATE TABLE " + TABLE_NAME + " (" + ID + " integer primary key, " +
             CONTENT + " TEXT, " +
             MONEY + " TEXT)";
@@ -48,6 +48,7 @@ public class DataBase extends SQLiteOpenHelper {
     public void addContent(ContentData data) {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(ID,data.getmID());
         values.put(CONTENT, data.getmContent());
         values.put(MONEY, data.getmMoney());
         database.insert(TABLE_NAME, null, values);
@@ -71,5 +72,16 @@ public class DataBase extends SQLiteOpenHelper {
         }
         db.close();
         return Listcontent;
+    }
+
+
+    public void updateNote(String content, String money, int ID) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values =  new ContentValues();
+        values.put("Content", content);
+        values.put("Money", money);
+        //updating row
+        sqLiteDatabase.update(TABLE_NAME, values, "ID=" + ID, null);
+        sqLiteDatabase.close();
     }
 }
