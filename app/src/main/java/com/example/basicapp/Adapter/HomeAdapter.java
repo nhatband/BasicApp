@@ -3,24 +3,22 @@ package com.example.basicapp.Adapter;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.basicapp.Data.ContentData;
 import com.example.basicapp.Data.DataBase;
-import com.example.basicapp.Data.DataRecycleHome;
 import com.example.basicapp.R;
 
 import java.util.ArrayList;
@@ -30,6 +28,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     Context context;
     DataBase dataBase;
     Activity activity;
+    ContentData contentData;
 
     public HomeAdapter(ArrayList<ContentData> contentData, Context context, Activity activity) {
         this.ListcontentData = contentData;
@@ -48,8 +47,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ContentData contentData = ListcontentData.get(position);
-        holder.txtDate.setText(String.valueOf(contentData.getmID()));
+        contentData = ListcontentData.get(position);
+        holder.imgID.getImageAlpha();
         holder.txtContent.setText(contentData.getmContent());
         holder.txtMoney.setText(contentData.getmMoney());
         dataBase = new DataBase(context);
@@ -62,17 +61,69 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtDate, txtContent, txtMoney;
+        TextView  txtContent, txtMoney;
+        ImageButton imbEdit, imbCancel;
+        ImageView imgID;
+        Dialog dialog;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
-            txtDate = itemView.findViewById(R.id.txtDate);
+            imgID = itemView.findViewById(R.id.imgID);
             txtContent = itemView.findViewById(R.id.txtContent);
             txtMoney = itemView.findViewById(R.id.txtMoney);
+            imbEdit = itemView.findViewById(R.id.imbEdit);
+            imbCancel = itemView.findViewById(R.id.imbCancel);
+            dialog = new Dialog(itemView.getContext());
+            dialog.setContentView(R.layout.custom_add_dialog_layout);
+            dialog.getWindow().setLayout(LinearLayout.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            imbEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final EditText edtPurpose, edtMoney;
+                    Button btnSave;
+                    edtPurpose = dialog.findViewById(R.id.edtPurpose);
+                    edtMoney = dialog.findViewById(R.id.edtMoney);
+                    btnSave = dialog.findViewById(R.id.btnSave);
+                    contentData = ListcontentData.get(getAdapterPosition());
+                    edtPurpose.setText(contentData.getmContent());
+                    edtMoney.setText(contentData.getmMoney());
+                    dialog.show();
+                    btnSave.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            contentData.setmContent(edtPurpose.getText().toString());
+                            contentData.setmMoney(edtMoney.getText().toString());
+                            int result = dataBase.updateNote(contentData);
+                            if (result > 0) {
+                                Toast.makeText(view.getContext(), "Update success", Toast.LENGTH_SHORT).show();
+                                ListcontentData.clear();
+                                ListcontentData.addAll(dataBase.getAlldata());
+                                notifyDataSetChanged();
+                                dialog.cancel();
 
+                            } else {
+                                Toast.makeText(view.getContext(), "Update fail", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            });
+            imbCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    contentData = ListcontentData.get(getAdapterPosition());
+                    int result = dataBase.deleteStudent(contentData.getmID());
+                    if (result>0){
+                        Toast.makeText(v.getContext(),"Delete Success",Toast.LENGTH_SHORT).show();
+                        ListcontentData.clear();
+                        ListcontentData.addAll(dataBase.getAlldata());
+                        notifyDataSetChanged();
+                    }else {
+                        Toast.makeText(v.getContext(),"Delete fail",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
-
-
-    }
+}
 

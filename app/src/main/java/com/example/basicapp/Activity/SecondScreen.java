@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.basicapp.Fragment.AddFragment;
 import com.example.basicapp.Fragment.ChartFragment;
 import com.example.basicapp.Fragment.HomeFragment;
 import com.example.basicapp.Fragment.InfoFragment;
@@ -42,7 +41,7 @@ public class SecondScreen extends AppCompatActivity {
                     selectfragment = new SettingFragment();
                     break;
                 case R.id.nav_Chart:
-                    selectfragment = new AddFragment();
+                    selectfragment = new ChartFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, selectfragment).commit();
